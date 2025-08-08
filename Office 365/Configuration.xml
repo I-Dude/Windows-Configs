@@ -1,0 +1,20 @@
+<Configuration ID="771de07e-f59f-4ea3-8fa8-3a426f26654e">
+  <Add OfficeClientEdition="64" Channel="SemiAnnual">
+    <Product ID="O365ProPlusRetail">
+      <Language ID="en-us" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="OneNote" />
+      <ExcludeApp ID="Outlook" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Teams" />
+    </Product>
+    <Product ID="LanguagePack">
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+  <Updates Enabled="TRUE" />
+  <RemoveMSI />
+</Configuration>

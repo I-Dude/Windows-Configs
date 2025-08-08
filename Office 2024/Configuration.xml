@@ -1,0 +1,20 @@
+<Configuration ID="223eca91-7c06-4e1c-bcec-34f2f2c8ebdb">
+  <Add OfficeClientEdition="64" SourcePath="C:\Office 2024\IMG\">
+    <Product ID="ProPlus2024Retail">
+      <Language ID="en-us" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="OneNote" />
+      <ExcludeApp ID="Outlook" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Teams" />
+    </Product>
+    <Product ID="LanguagePack">
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+  <Updates Enabled="TRUE" />
+  <RemoveMSI />
+</Configuration>
