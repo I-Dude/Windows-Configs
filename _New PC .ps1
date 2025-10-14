@@ -8,10 +8,12 @@
 #Get-AppxPackage -AllUsers *WindowsStore* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 
 #Get-AppxPackage *camera* | Remove-AppxPackage
+#Get-AppxPackage *gethelp* | Remove-AppxPackage
 #Get-AppxPackage *media* | Remove-AppxPackage
 #Get-AppxPackage *mspaint* | Remove-AppxPackage
 #Get-AppxPackage *notes* | Remove-AppxPackage
 #Get-AppxPackage *photos* | Remove-AppxPackage
+#Get-AppxPackage *QuickAssist* | Remove-AppxPackage
 #Get-AppxPackage *screensketch* | Remove-AppxPackage
 
 Get-AppxPackage *3dbuilder* | Remove-AppxPackage
@@ -41,10 +43,10 @@ Get-AppxPackage *onenote* | Remove-AppxPackage
 Get-AppxPackage *outlook* | Remove-AppxPackage
 Get-AppxPackage *people* | Remove-AppxPackage
 Get-AppxPackage *phone* | Remove-AppxPackage
-Get-AppxPackage *QuickAssist* | Remove-AppxPackage
 Get-AppxPackage *skypeapp* | Remove-AppxPackage
 Get-AppxPackage *solitairecollection* | Remove-AppxPackage
 Get-AppxPackage *soundrecorder* | Remove-AppxPackage
+Get-AppxPackage *StartExperiences* | Remove-AppxPackage
 Get-AppxPackage *storepurchase* | Remove-AppxPackage
 Get-AppxPackage *todo* | Remove-AppxPackage
 Get-AppxPackage *vp9* | Remove-AppxPackage
@@ -54,6 +56,9 @@ Get-AppxPackage *xbox* | Remove-AppxPackage
 Get-AppxPackage *zunemusic* | Remove-AppxPackage
 Get-AppxPackage *zunevideo* | Remove-AppxPackage
 
+winget uninstall OneDriveSetup.exe
+Disable-WindowsOptionalFeature -Online -FeatureName "Recall"
+
 # Install chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
@@ -62,8 +67,14 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 choco feature enable -n allowGlobalConfirmation
 choco install 7zip -y
 choco install notepadplusplus -y
+choco install chrome -y
+
 choco install vcredist-all -y
 choco install dotnet-6.0-runtime -y
+choco install firefoxesr -y
 
 #choco install eartrumpet -y
 #choco install hwinfo -y
+
+# Chris Titus Ultimate Windows Utility
+iwr -useb https://christitus.com/win | iex
