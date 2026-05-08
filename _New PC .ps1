@@ -35,6 +35,7 @@ Get-AppxPackage *crossdevice* | Remove-AppxPackage -Allusers
 Get-AppxPackage *devhome* | Remove-AppxPackage -Allusers
 Get-AppxPackage *family* | Remove-AppxPackage -Allusers
 Get-AppxPackage *feedback* | Remove-AppxPackage -Allusers
+Get-AppxPackage *getstarted* | Remove-AppxPackage -Allusers
 Get-AppxPackage *gamingapp* | Remove-AppxPackage -Allusers
 Get-AppxPackage *getstarted* | Remove-AppxPackage -Allusers
 Get-AppxPackage *maps* | Remove-AppxPackage -Allusers
@@ -47,6 +48,7 @@ Get-AppxPackage *outlook* | Remove-AppxPackage -Allusers
 Get-AppxPackage *people* | Remove-AppxPackage -Allusers
 Get-AppxPackage *phone* | Remove-AppxPackage -Allusers
 Get-AppxPackage *PowerAutomate* | Remove-AppxPackage -Allusers
+Get-AppxPackage *print3d* | Remove-AppxPackage -Allusers
 Get-AppxPackage *skypeapp* | Remove-AppxPackage -Allusers
 Get-AppxPackage *solitairecollection* | Remove-AppxPackage -Allusers
 Get-AppxPackage *soundrecorder* | Remove-AppxPackage -Allusers
@@ -85,6 +87,7 @@ Get-AppxProvisionedPackage -Online | ? DisplayName -like '*outlook*' | Remove-Ap
 Get-AppxProvisionedPackage -Online | ? DisplayName -like '*people*' | Remove-AppxProvisionedPackage -Online
 Get-AppxProvisionedPackage -Online | ? DisplayName -like '*phone*' | Remove-AppxProvisionedPackage -Online
 Get-AppxProvisionedPackage -Online | ? DisplayName -like '*PowerAutomate*' | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -Online | ? DisplayName -like '*print3d*' | Remove-AppxProvisionedPackage -Online
 Get-AppxProvisionedPackage -Online | ? DisplayName -like '*skypeapp*' | Remove-AppxProvisionedPackage -Online
 Get-AppxProvisionedPackage -Online | ? DisplayName -like '*solitairecollection*' | Remove-AppxProvisionedPackage -Online
 Get-AppxProvisionedPackage -Online | ? DisplayName -like '*stickynotes*' | Remove-AppxProvisionedPackage -Online
@@ -112,6 +115,8 @@ choco install vlc -y
 #choco install hwinfo -y
 #choco install powertoys
 
+#To install .NET Framework 3.5 offline from a Windows installation image, run the following DISM command:
+DISM /online /enable-feature /featurename:NetFX3 /All /Source:D:\sources\sxs /LimitAccess
 
 # Chris Titus Ultimate Windows Utility
 iwr -useb https://christitus.com/win | iex
