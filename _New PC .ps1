@@ -96,7 +96,12 @@ Get-AppxProvisionedPackage -Online | ? DisplayName -like '*wallet*' | Remove-App
 Get-AppxProvisionedPackage -Online | ? DisplayName -like '*zunevideo*' | Remove-AppxProvisionedPackage -Online
 
 winget uninstall OneDriveSetup.exe
+
+#Remove Windows Ai
 Disable-WindowsOptionalFeature -Online -FeatureName "Recall"
+& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/zoicware/RemoveWindowsAI/main/RemoveWindowsAi.ps1"))) -nonInteractive -Options DisableRegKeys,DisableCopilotPolicies,RemoveAppxPackages,RemoveRecallFeature,HideAIComponents,DisableRewrite,RemoveRecallTasks
+#Options that might break Widnows update : PreventAIPackageReinstall,RemoveCBSPackages,RemoveAIFiles
+#Option : UpdateCleanupCheck
 
 # Install chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force
@@ -114,7 +119,6 @@ choco install vlc -y
 #choco install eartrumpet -y
 #choco install hwinfo -y
 #choco install powertoys
-
 #To install .NET Framework 3.5 offline from a Windows installation image, run the following DISM command:
 DISM /online /enable-feature /featurename:NetFX3 /All /Source:D:\sources\sxs /LimitAccess
 
